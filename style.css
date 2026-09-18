@@ -1,0 +1,700 @@
+/* =========================================================
+   THE FOODPLEX — MOBILE EDITORIAL RESTAURANT WEBSITE
+   Hero uses 100svh instead of a fixed height so it fills
+   the real mobile viewport without browser-bar jump issues.
+   ========================================================= */
+
+:root {
+  --cream: #f1ede3;
+  --paper: #e9e2d3;
+  --ink: #181816;
+  --muted: #706d64;
+  --gold: #b99a68;
+  --line: rgba(24, 24, 22, .16);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.site-header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.logo {
+  display: grid;
+  line-height: .8;
+  width: max-content;
+}
+
+.logo-mark {
+  font-family: var(--serif);
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.logo strong {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.logo small {
+  font-size: 6px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+}
+
+.desktop-nav { display: none; }
+
+.menu-button {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  padding: 10px 4px;
+  background: transparent;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+}
+
+.menu-button span {
+  display: block;
+  width: 29px;
+  height: 1.5px;
+  background: white;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  min-height: 100svh;
+  height: 100svh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+
+  /* Replace with your own optimized hero image */
+  background:
+    url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=85")
+    center center / cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.08) 38%, rgba(0,0,0,.76) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 22px 105px;
+}
+
+.eyebrow,
+.section-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 17px;
+  opacity: .8;
+}
+
+.hero h1 {
+  max-width: 390px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(46px, 13vw, 72px);
+  line-height: .94;
+  font-weight: 500;
+  letter-spacing: -2.5px;
+}
+
+.hero h1 em {
+  font-weight: 500;
+}
+
+.hero-copy {
+  max-width: 300px;
+  margin: 21px 0 25px;
+  color: rgba(255,255,255,.82);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.button span { margin-left: 14px; font-size: 14px; }
+
+.button:hover { transform: translateY(-2px); }
+
+.button-light {
+  background: rgba(245,241,231,.95);
+  color: var(--ink);
+}
+
+.text-link {
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.text-link:hover::after { transform: scaleX(.45); }
+
+.light-link { color: white; }
+
+.hero-bottom {
+  position: absolute;
+  z-index: 3;
+  left: 22px;
+  right: 22px;
+  bottom: 23px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255,255,255,.58);
+  font-size: 7px;
+  letter-spacing: 1.7px;
+}
+
+/* ---------------- GENERAL SECTIONS ---------------- */
+
+.section {
+  padding: 70px 22px;
+}
+
+.section-label {
+  color: #79756b;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(38px, 10vw, 58px);
+  line-height: .98;
+  letter-spacing: -1.8px;
+}
+
+h2 em {
+  font-weight: 500;
+}
+
+p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* ---------------- STORY ---------------- */
+
+.story {
+  background: var(--cream);
+}
+
+.story-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.story-grid > div:first-child p {
+  max-width: 310px;
+  margin: 26px 0 28px;
+  color: var(--muted);
+}
+
+.image-frame {
+  min-height: 330px;
+  background-size: cover;
+  background-position: center;
+}
+
+.food-bowl {
+  background-image: url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=82");
+}
+
+/* ---------------- PHILOSOPHY ---------------- */
+
+.philosophy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 470px;
+  background: var(--ink);
+  color: white;
+}
+
+.philosophy-image {
+  min-height: 470px;
+  background:
+    url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=82")
+    center / cover;
+  filter: saturate(.8);
+}
+
+.philosophy-copy {
+  padding: 42px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.light-label { color: rgba(255,255,255,.58); }
+
+.philosophy-copy h2 {
+  font-size: clamp(28px, 7.5vw, 46px);
+}
+
+.philosophy-copy p {
+  color: rgba(255,255,255,.65);
+  margin: 23px 0 27px;
+  font-size: 11px;
+}
+
+/* ---------------- MENU ---------------- */
+
+.menu-section {
+  background: var(--paper);
+}
+
+.menu-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.menu-heading h2 {
+  font-size: clamp(37px, 10vw, 58px);
+}
+
+.menu-heading > .text-link {
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.menu-list {
+  border-top: 1px solid var(--line);
+}
+
+.menu-item {
+  min-height: 91px;
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.menu-number {
+  color: #aaa396;
+  font-size: 9px;
+}
+
+.menu-item h3 {
+  margin: 0 0 5px;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.menu-item p {
+  margin: 0;
+  max-width: 230px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.menu-item > strong {
+  align-self: start;
+  padding-top: 20px;
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ---------------- QUOTE ---------------- */
+
+.quote-section {
+  min-height: 320px;
+  padding: 65px 22px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: var(--ink);
+  color: white;
+}
+
+.quote-mark {
+  margin: 0 0 -25px;
+  font-family: var(--serif);
+  font-size: 45px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(29px, 7.5vw, 46px);
+  line-height: 1.03;
+  letter-spacing: -1px;
+}
+
+blockquote em { color: var(--gold); }
+
+/* ---------------- REVIEWS ---------------- */
+
+.reviews {
+  background: var(--cream);
+}
+
+.reviews-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.reviews-top h2 { font-size: clamp(39px, 10vw, 58px); }
+
+.rating {
+  text-align: right;
+  display: grid;
+  gap: 3px;
+  padding-bottom: 5px;
+}
+
+.rating strong {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.rating span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.rating small {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.review-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.review {
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.2);
+}
+
+.review p {
+  margin: 0 0 25px;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.review span {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-bottom: 9px;
+}
+
+.review b {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---------------- RESERVATION ---------------- */
+
+.reserve {
+  min-height: 410px;
+  position: relative;
+  display: grid;
+  align-items: end;
+  color: white;
+  overflow: hidden;
+}
+
+.reserve-image {
+  position: absolute;
+  inset: 0;
+  background:
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1300&q=85")
+    center / cover;
+}
+
+.reserve::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.82));
+}
+
+.reserve-copy {
+  position: relative;
+  z-index: 2;
+  padding: 45px 22px;
+}
+
+.reserve-copy h2 { font-size: clamp(40px, 10vw, 58px); }
+
+.reserve-copy p {
+  max-width: 280px;
+  color: rgba(255,255,255,.72);
+  font-size: 11px;
+}
+
+.button-gold {
+  background: var(--gold);
+  color: white;
+  margin-top: 8px;
+}
+
+/* ---------------- ORDER ---------------- */
+
+.order {
+  position: relative;
+  overflow: hidden;
+  background: #d6b481;
+}
+
+.order::after {
+  content: "✦";
+  position: absolute;
+  right: 25px;
+  bottom: 35px;
+  font-family: var(--serif);
+  font-size: 75px;
+  color: rgba(255,255,255,.23);
+}
+
+.order h2 { font-size: clamp(42px, 11vw, 62px); }
+
+.order p {
+  max-width: 310px;
+  color: #5e4d38;
+  margin: 22px 0;
+}
+
+.button-dark {
+  background: var(--ink);
+  color: white;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+  padding: 55px 22px 25px;
+  background: #11110f;
+  color: white;
+}
+
+.footer-logo {
+  display: grid;
+  width: max-content;
+  margin-bottom: 38px;
+}
+
+.footer-logo span {
+  margin-left: 9px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11px;
+}
+
+.footer-logo strong {
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.footer-logo small {
+  margin-top: 6px;
+  color: #85837c;
+  font-size: 6px;
+  letter-spacing: 3px;
+}
+
+.footer-links,
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.footer-links a,
+.socials a {
+  color: #aaa79e;
+  font-size: 10px;
+}
+
+.copyright {
+  display: block;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #66645e;
+  font-size: 8px;
+}
+
+/* ---------------- TABLET / DESKTOP ---------------- */
+
+@media (min-width: 700px) {
+  .site-header {
+    padding: 28px 42px;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .desktop-nav a {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav .nav-cta {
+    padding: 12px 15px;
+    border: 1px solid rgba(255,255,255,.5);
+  }
+
+  .menu-button { display: none; }
+
+  .hero-content {
+    padding: 0 7vw 100px;
+  }
+
+  .hero-bottom {
+    left: 7vw;
+    right: 7vw;
+  }
+
+  .section {
+    padding: 100px 8vw;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr .9fr;
+    align-items: center;
+    gap: 10vw;
+  }
+
+  .image-frame {
+    min-height: 450px;
+  }
+
+  .philosophy {
+    min-height: 600px;
+  }
+
+  .philosophy-image {
+    min-height: 600px;
+  }
+
+  .philosophy-copy {
+    padding: 60px 8vw 60px 5vw;
+  }
+
+  .menu-item {
+    grid-template-columns: 45px 1fr auto;
+  }
+
+  .review-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    padding: 70px 8vw 30px;
+  }
+}
+
+/* Prevent the page from becoming a tiny centered "card" on phones */
+@media (max-width: 699px) {
+  body,
+  main,
+  .hero,
+  .section,
+  footer {
+    width: 100%;
+  }
+}
